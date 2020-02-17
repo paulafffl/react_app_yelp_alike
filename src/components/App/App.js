@@ -16,7 +16,14 @@ const business = {
   reviewCount: 90
 };
 
-const businessesArray = [business,business,business,business,business,business];
+const businesses = [
+  business,
+  business,
+  business,
+  business,
+  business,
+  business
+];
 
 class App extends React.Component {
   render() {
@@ -24,7 +31,7 @@ class App extends React.Component {
       <div className="App">
         <h1>ravenous</h1>
         <SearchBar />
-        <BusinessList businesses={businessesArray}/>
+        <BusinessList businesses={businesses} />
       </div>
     );
   }
