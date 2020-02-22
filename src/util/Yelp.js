@@ -4,7 +4,7 @@ const yelp = {
     search(term, location, sortBy){
         //return a promise that will ultimately resolve to our list of businesses
         return fetch(
-            `https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?term=${term}&$location=${LOCATION}&sort_by=${SORT_BY}`,{
+            `https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?term=${term}&$location=${location}&sort_by=${sortBy}`,{
                 headers: {
                     Authorisation: `Bearer ${apiKey}`
             }
@@ -31,8 +31,7 @@ const yelp = {
                 })
             }
         }
-        ;
-    }
+    },
 }
 
 export default yelp;
