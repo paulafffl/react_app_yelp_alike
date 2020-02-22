@@ -4,21 +4,20 @@ const yelp = {
     search(term, location, sortBy){
         //return a promise that will ultimately resolve to our list of businesses
         return fetch(
-            `https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?term=${term}&$location=${location}&sort_by=${sortBy}`,{
-                headers: {
-                    Authorisation: `Bearer ${apiKey}`
-            }
+            `https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?term=${term}&$location=${location}&sort_by=${sortBy}`,
+            {
+            headers: {Authorisation: `Bearer ${apiKey}`}
         //convert the returned response to JSON for us to be able to effectively utilize our list of businesses
-        }).then(response => {
+        }).then((response) => {
             return response.json();
         //retrieve the list of businesses from the converted JSON response    
-        }).then(jsonResponse => {
+        }).then((jsonResponse) => {
             console.log(jsonResponse);
             if (jsonResponse.businesses) {
                 return jsonResponse.businesses.map(business => {
                   return {
                     id: business.id,
-                    imageSrc: busines.image_url,
+                    imageSrc: business.image_url,
                     name: business.name,
                     address: business.location.address,
                     city: business.location.city,
@@ -27,11 +26,11 @@ const yelp = {
                     category: business.categories[0].title,
                     rating: business.rating,
                     reviewCount: business.review_count,
-                  }  
-                })
+                  };  
+                });
             }
-        }
-    },
+        })
+    }
 }
 
 export default yelp;
